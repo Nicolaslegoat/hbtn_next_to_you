@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'bestpolice';
+    src: url('Antology.ttf') format('truetype');
+}
+body {
+    font-family: bestpolice, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+}
+nav {
+    background-color: #444;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
