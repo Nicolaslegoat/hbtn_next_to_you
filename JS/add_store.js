@@ -96,7 +96,7 @@ document.getElementById('addressForm').addEventListener('submit', function (even
   formData.append('longitude', longitude);
 
   try {
-    const response = await fetch('add_magasins.php', {
+    const response = await fetch('PHP/add_magasins.php', {
       method: 'POST',
       body: formData,
     });

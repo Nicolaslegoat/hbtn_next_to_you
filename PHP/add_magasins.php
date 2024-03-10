@@ -21,8 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $connexion->close();
 
-    // Envoi d'une réponse JSON de succès
-    echo json_encode(['success' => true, 'message' => 'Magasin ajouté avec succès']);
+    // Redirection vers une page HTML spécifique après le succès
+    header("Location: validation.html");
+    exit; // Assurez-vous de terminer l'exécution du script après la redirection
 } else {
     // Envoi d'une réponse JSON d'erreur 405
     echo json_encode(['success' => false, 'message' => 'Requête incorrecte : méthode non autorisée']);
