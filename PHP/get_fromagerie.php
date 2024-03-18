@@ -20,26 +20,26 @@ function connectToDatabase() {
     return $connexion;
 }
 
-// Fonction pour récupérer tous les magasins
-function getAllStores($connexion) {
-    $result = $connexion->query("SELECT * FROM list_store");
+// Fonction pour récupérer les magasins de la catégorie "Fromagerie"
+function getFromagerieStores($connexion) {
+    $result = $connexion->query("SELECT * FROM list_store WHERE category = 'Fromagerie'");
 
-    $list_store = array();
+    $fromagerieStores = array();
     while ($row = $result->fetch_assoc()) {
-        $list_store[] = $row;
+        $fromagerieStores[] = $row;
     }
 
-    return $list_store;
+    return $fromagerieStores;
 }
 
 // Connexion à la base de données
 $connexion = connectToDatabase();
 
-// Récupération de tous les magasins
-$list_magasins = getAllStores($connexion);
+// Récupération des magasins de la catégorie "Fromagerie"
+$list_fromagerie_magasins = getFromagerieStores($connexion);
 
 // Encodage des résultats en JSON
-echo json_encode($list_magasins);
+echo json_encode($list_fromagerie_magasins);
 
 // Fermeture de la connexion
 $connexion->close();

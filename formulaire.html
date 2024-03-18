@@ -28,7 +28,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="css/istyle.css" rel="stylesheet" />
 
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
@@ -57,16 +57,16 @@
                 <a class="nav-link" href="accueil.html">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
+                <a class="nav-link" href="map.html">map</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="furniture.html">Furnitures</a>
+                <a class="nav-link" href="categorie.html">categories</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html">Blog</a>
+                <a class="nav-link" href="formulaire.html">add your store</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="formulaire.html">Contact Us</a>
+                <a class="nav-link" href="contact_us.html">contact us</a>
               </li>
             </ul>
           </div>
@@ -77,6 +77,11 @@
               </span>
               <i class="fa fa-user" aria-hidden="true"></i>
             </a>
+            <form class="form-inline">
+              <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </button>
+            </form>
           </div>
         </div>
       </nav>
@@ -93,7 +98,7 @@
                   Contact Us
                   </h2>
                     </div>
-                    <form id="addressForm" action="php/add_magasins.php" method="post">
+                    <form id="addressForm" action="php/add_store.php" method="post" onsubmit="return submitForm()">
                       <div class="input-group">
                           <label for="nom_magasin">Store Name::</label>
                           <input type="text" id="nom_magasin" name="nom_magasin" required>
@@ -113,8 +118,17 @@
                           <label for="country">Country:</label>
                           <input type="text" id="country" name="country" required>
                       </div>
+                      <div class="input-group">
+                        <label for="category">Category:</label>
+                        <select id="category" name="category">
+                            <option value="Fleuriste">Fleuriste</option>
+                            <option value="Boulangerie">Boulangerie</option>
+                            <option value="Boucherie">Boucherie</option>
+                            <option value="Droguerie">Droguerie</option>
+                        </select>
+                      </div>
                       <div class="btn_box">
-                        <button type="submit">ADD STORE</button>
+                          <button type="submit">ADD STORE</button>
                       </div>
                     </form>
                   </div>
@@ -230,7 +244,7 @@
     <!-- end info_section -->
 
     <!-- Inclusion du fichier JavaScript -->
-    <script src="JS/add_store.js"></script>
+    <script src="add_store.js"></script>
 
 </body>
 </html>

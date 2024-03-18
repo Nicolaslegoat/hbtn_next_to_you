@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Next To You</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- Custom styles -->
+    <link href="css/mystyle.css" rel="stylesheet" />
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/istyle.css" rel="stylesheet" />
+
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <script src="add_store.js"></script>
+    <style>
+        #storeInfo {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-left: 15px;
+        }
+
+        #storeImage {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #phoneNumberBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            
+        }
+ 
+        #openingHoursBtn {
+            background-color: #008CBA;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            text-align: center;
+            margin-left: 15px;
+        }
+
+        #phoneNumberIcon {
+            margin-right: 5px;
+        }
+
+        #openingHours {
+            margin-top: 10px;
+            margin-left: 18px;
+        }
+
+        #description {
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .detail-box {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .btn-container {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 50px;
+        }
+
+        .btn1 {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #888;
+            background-color: #fff;
+            cursor: pointer;
+            margin-left: 45px;
+            transition: 0.8s;
+        }
+        .btn2 {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            color: #000;
+            text-decoration: none;
+            border: 1px solid #888;
+            background-color: #fff;
+            cursor: pointer;
+            margin-right: 45px;
+            transition: 0.8s;
+        }
+
+        .btn1:hover {
+            background-color: #ba4100;
+            color: #fff;
+        }
+
+        .btn2:hover {
+            background-color: #cf4ebf;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero_area">
+        <!-- header section starts -->
+        <header class="header_section long_section px-0">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="accueil.html">
+                    <span>
+                        NEXT TO YOU
+                    </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+                        <ul class="navbar-nav ">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="accueil.html">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html"> About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="furniture.html">Furnitures</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="blog.html">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="formulaire.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="quote_btn-container">
+                        <a href="">
+                            <span>
+                                Login
+                            </span>
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- end header section -->
+        <section class="slider_section long_section">
+            <img id="storeImage" src="images/fleuristes/cactus_et_plantes_grasses.webp" alt="Image du Magasin" width="650px">
+
+            <div id="storeInfo" class="">
+                <h1>Cactus & Plantes Grasses</h1>
+                <h4>Adresse: 36 Rue d'Astorg, 31000 Toulouse</h4>
+                <div class="col-md-6">
+                    <button id="phoneNumberBtn" onclick="togglePhoneNumber()">
+                        <span id="phoneNumberIcon"></span>
+                        AFFICHER NUMERO DE TELEPHONE
+                    </button>
+                    <h4 id="phoneNumber" class="hidden">
+                        05 61 23 94 54</h4>
+                </div>
+                <div id="description">
+                    <h2>Description du Magasin</h2>
+                    <p>Cet artisan fleuriste aux présentoirs rustiques propose des compositions et bouquets pour tous les événements.</p>
+                </div>
+                <button id="openingHoursBtn" onclick="toggleOpeningHours()">AFFICHER/MASQUER LES HORAIRES</button>
+                <div id="openingHours" class="hidden">
+                    <p>Lundi: 9h00 - 18h00</p>
+                    <p>Mardi: 9h00 - 18h00</p>
+                    <p>Mercredi: 9h00 - 18h00</p>
+                    <p>Jeudi: 9h00 - 18h00</p>
+                    <p>Vendredi: 9h00 - 18h00</p>
+                    <p>Samedi: 10h00 - 15h00</p>
+                    <p>Dimanche: Fermé</p>
+                </div>
+
+                </div>
+            </div>
+            
+        </section>
+
+
+    <footer>
+        <div class="detail-box">
+            <div class="btn-container">
+                <a href="map.html" class="btn1">
+                    RETOURNER SUR LA CARTE
+                </a>
+                <a href="fleuristemap.html" class="btn2">
+                    AUTRES FLEURISTES
+                </a>
+            </div>
+        </div>
+
+        <!-- info section -->
+        <section class="info_section long_section">
+      
+          <div class="container">
+            <div class="contact_nav">
+              <a href="">
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                <span>
+                  Call : +33 0695655431
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span>
+                  Email : demo@gmail.com
+                </span>
+              </a>
+              <a href="">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <span>
+                  Location
+                </span>
+              </a>
+            </div>
+      
+            <div class="info_top ">
+              <div class="row ">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <div class="info_links">
+                    <h4>
+                      QUICK LINKS
+                    </h4>
+                    <div class="info_links_menu">
+                      <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
+                      <a class="" href="about.html"> About</a>
+                      <a class="" href="furniture.html">Furniture</a>
+                      <a class="" href="blog.html">Blog</a>
+                      <a class="" href="contact.html">Contact Us</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-lg-3 mx-auto">
+                  <div class="info_post">
+                    <h5>
+                      INSTAGRAM FEEDS
+                    </h5>
+                    <div class="post_box">
+                      <div class="img-box">
+                        <img src="images/f1.png" alt="">
+                      </div>
+                      <div class="img-box">
+                        <img src="images/f2.png" alt="">
+                      </div>
+                      <div class="img-box">
+                        <img src="images/f3.png" alt="">
+                      </div>
+                      <div class="img-box">
+                        <img src="images/f4.png" alt="">
+                      </div>
+                      <div class="img-box">
+                        <img src="images/f5.png" alt="">
+                      </div>
+                      <div class="img-box">
+                        <img src="images/f6.png" alt="">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="info_form">
+                    <h4>
+                      SIGN UP TO OUR NEWSLETTER
+                    </h4>
+                    <form action="">
+                      <input type="text" placeholder="Enter Your Email" />
+                      <button type="submit">
+                        Subscribe
+                      </button>
+                    </form>
+                    <div class="social_box">
+                      <a href="">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                      </a>
+                      <a href="">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                      </a>
+                      <a href="">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                      </a>
+                      <a href="">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        </footer>
+
+        <script>
+            function togglePhoneNumber() {
+                const phoneNumber = document.getElementById('phoneNumber');
+                phoneNumber.classList.toggle('hidden');
+            }
+
+            function toggleOpeningHours() {
+                const openingHours = document.getElementById('openingHours');
+                openingHours.classList.toggle('hidden');
+            }
+        </script>
+</body>
+
+</html>
+

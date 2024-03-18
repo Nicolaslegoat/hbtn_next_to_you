@@ -1,4 +1,4 @@
-var mymap;
+      var mymap;
       var magasins = [];
       var storeMarkers = [];
       var storeDropdown = document.getElementById('storeSelect');
@@ -6,22 +6,22 @@ var mymap;
       var userLng;
       
       function initializeMap() {
-            mymap = L.map('map').setView([0, 0], 15);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© NextToYou contributors'
-            }).addTo(mymap);
-
-            mymap.on('load', function () {
-                console.log('Map tiles loaded successfully.');
-            });
-
-            if ("geolocation" in navigator) {
-                navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError);
-            } else {
-                console.log("Geolocation is not supported by this browser.");
-            }
+        mymap = L.map('map').setView([0, 0], 15);
+    
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© NextToYou contributors'
+        }).addTo(mymap);
+    
+        mymap.on('load', function () {
+            console.log('Map tiles loaded successfully.');
+        });
+    
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(onLocationSuccess, onLocationError);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
         }
+    }
 
       
       function calculateDistance(lat1, lon1, lat2, lon2) {
@@ -41,26 +41,60 @@ var mymap;
           return deg * (Math.PI / 180);
       }
       
+      
       function addStoreMarker(store) {
-          var storeMarker = L.marker([store.latitude, store.longitude]).addTo(mymap);
-          storeMarker.bindPopup(`<b>${store.nom}</b><br><a href="magasin${store.id}.html">${store.nom}</a>`).openPopup();
+        // Ajoutez une condition pour vérifier si la catégorie est égale à "Boulangerie"
+        if (store.category === "Boulangerie") {
+          var marronPointerIcon = L.icon({
+              iconUrl: 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#cb9751" d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>'),
+              iconSize: [25, 41],
+              iconAnchor: [12, 41],
+              popupAnchor: [1, -34],
+            });
       
-          storeMarker.on('click', function () {
-              window.location.href = `magasin${store.id}.html`;
-          });
-      
-          storeMarkers.push(storeMarker);
-      
-          var listItem = document.createElement('div');
-          listItem.classList.add('store-list-item');
-          listItem.innerText = store.nom;
-      
-          listItem.addEventListener('click', function () {
-              mymap.setView([store.latitude, store.longitude], 13);
-          });
-      
-          document.getElementById('storeList').appendChild(listItem);
-      }
+          var storeMarker = L.marker([store.latitude, store.longitude], {
+              icon: marronPointerIcon
+          }).addTo(mymap);
+    
+            // Calculer la distance
+            var distance = calculateDistance(userLat, userLng, store.latitude, store.longitude);
+    
+            // Convertir la distance en kilomètres si elle dépasse 1000 mètres
+            var distanceText;
+            if (distance >= 1000) {
+                distance /= 1000;
+                distanceText = `${distance.toFixed(2)} km`;
+            } else {
+                distanceText = `${distance.toFixed(2)} m`;
+            }
+    
+            // Mettez l'unité de distance à la fin du texte
+            storeMarker.bindPopup(`<b>${store.nom}</b><br><a href="magasin${store.id}.html">${store.nom}</a><br>Distance: ${distanceText}`).openPopup();
+    
+            storeMarker.on('mouseover', function (e) {
+                this.openPopup();
+            });
+
+            storeMarker.on('click', function () {
+                window.location.href = `magasin${store.id}.html`;
+            });
+    
+            storeMarkers.push(storeMarker);
+    
+            var listItem = document.createElement('div');
+            listItem.classList.add('store-list-item');
+    
+            // Mettez l'unité de distance à la fin du texte
+            listItem.innerHTML = `<div class="store-info">${store.nom}</div><div class="distance">${distanceText}</div>`;
+    
+            listItem.addEventListener('click', function () {
+                mymap.setView([store.latitude, store.longitude], 17);
+            });
+    
+            document.getElementById('storeList').appendChild(listItem);
+        }
+    }
+
       
       function addUserMarker() {
       var userIcon = L.icon({
@@ -82,7 +116,7 @@ var mymap;
       
           console.log("Fetching stores data from PHP...");
       
-          fetch('PHP/get_magasins.php')
+          fetch('PHP/get_boulangerie.php')
               .then(response => {
                   if (!response.ok) {
                       throw new Error(`HTTP error! Status: ${response.status}`);
