@@ -19,28 +19,25 @@
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 
-  <!-- font awesome style -->
+  <!-- Custom styles -->
+  <link href="css/mystyle.css" rel="stylesheet" />
 
-  <link href="css/istyle.css" rel="stylesheet" />
   <!-- fonts style -->
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
 
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+
   <!-- Custom styles for this template -->
-  <link href="css/mystyle.css" rel="stylesheet" />
+  <link href="css/istyle.css" rel="stylesheet" />
+
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 
-  <style>
-    .distance {
-    margin-left: 10px;
-    color: #888; /* Couleur du texte gris clair */
-        font-family: 'Poppins', sans-serif;
-}
-  </style>
 </head>
+
 <body>
+
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section long_section px-0">
@@ -92,15 +89,52 @@
       </nav>
     </header>
     <!-- end header section -->
-        <!-- Ajoutez l'élément div pour la carte ici -->
-        <section class="slider_section long_section">
-          <div id="map" class="map-container"></div>
-          <div id="storeDropdown" class="store-list-container">
-              <label for="storeSelect">Select a store:</label>
-              <div id="storeList" class="store-list"></div>
+<!-- contact section -->
+ <section class="contact_section  long_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form_container">
+            <div class="heading_container">
+              <h2>
+                Contact Us
+              </h2>
+            </div>
+            <form action="">
+              <div>
+                <input type="text" placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="text" placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div>
+                <input type="text" class="message-box" placeholder="Message" />
+              </div>
+              <div class="btn_box">
+                <button>
+                  SEND
+                </button>
+              </div>
+            </form>
           </div>
-      </section>
-      <!-- info section -->
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end contact section -->
+<footer>
+
+  <!-- info section -->
   <section class="info_section long_section">
 
     <div class="container">
@@ -114,13 +148,13 @@
         <a href="">
           <i class="fa fa-envelope" aria-hidden="true"></i>
           <span>
-            Email : n.mancino03@gmail.com.com
+            Email : n.mancino03@gmail.com
           </span>
         </a>
         <a href="">
           <i class="fa fa-map-marker" aria-hidden="true"></i>
           <span>
-            Location
+            Toulouse
           </span>
         </a>
       </div>
@@ -133,10 +167,10 @@
                 QUICK LINKS
               </h4>
               <div class="info_links_menu">
-                <a class="" href="index.html">Home <span class="sr-only">(current)</span></a>
-                <a class="" href="about.html"> About</a>
-                <a class="" href="furniture.html">Furniture</a>
-                <a class="" href="blog.html">Blog</a>
+                <a class="" href="acceuil.html">Home <span class="sr-only">(current)</span></a>
+                <a class="" href="map.html"> Search On Map</a>
+                <a class="" href="categorie.html">Categories</a>
+                <a class="" href="formulaire.html">Add Your Store</a>
                 <a class="" href="contact.html">Contact Us</a>
               </div>
             </div>
@@ -200,10 +234,14 @@
     </div>
   </section>
   </footer>
-  <!-- end info_section -->
 
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="JS/boulangerie_map.js"></script>
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+
 </body>
 
 </html>
